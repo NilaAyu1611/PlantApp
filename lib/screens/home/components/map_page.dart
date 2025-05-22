@@ -86,6 +86,24 @@ class _MapPageState extends State<MapPage> {
             ),        
         ],
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          if (selectedAddress != null) {
+            Navigator.pop(context, selectedAddress);
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text("Silakan pilih lokasi terlebih dahulu"),
+                behavior: SnackBarBehavior.floating,
+              ),
+            );
+          }
+        },
+        icon: const Icon(Icons.check),
+        label: const Text("Pilih Lokasi"),
+        backgroundColor: const Color(0xFF0C9869),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
