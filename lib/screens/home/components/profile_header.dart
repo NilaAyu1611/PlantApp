@@ -94,7 +94,23 @@ class _ProfileHeaderState extends State<ProfileHeader> {
                 ),
               ),             
             ],
-          ),          
+          ),     
+          const SizedBox(width: 20),
+          const Expanded(
+            child: Text(
+              "Uishopy ID",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+                color: Colors.white,
+                letterSpacing: 0.5,
+              ),
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.notifications_none, color: Colors.white),
+          ),     
         ],
       ),
     );
