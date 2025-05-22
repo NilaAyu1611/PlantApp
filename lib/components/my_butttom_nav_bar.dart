@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../constants.dart';
 
@@ -26,7 +26,24 @@ class MyBottomNavBar extends StatelessWidget {
             color: kPrimaryColor.withOpacity(0.38),
           ),
         ],
-      ),      
+      ),   
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          IconButton(
+            icon: SvgPicture.asset("assets/icons/flower.svg"),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: SvgPicture.asset("assets/icons/heart-icon.svg"),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: SvgPicture.asset("assets/icons/user-icon.svg"),
+            onPressed: () {},
+          ),
+        ],
+      ),   
     );
   }
 }
