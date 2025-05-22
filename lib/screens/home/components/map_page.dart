@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:geocoding/geocoding.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
@@ -20,7 +21,44 @@ class _MapPageState extends State<MapPage> {
         backgroundColor: const Color(0xFF0C9869),
         foregroundColor: Colors.white,
         elevation: 0,
-      ),      
+      ),     
+       body: Stack(
+        children: [
+          GoogleMap(
+            initialCameraPosition: const CameraPosition(
+              target: LatLng(-6.200000, 106.816666), // Jakarta
+              zoom: 14.0,
+            ),
+            onTap: (position) async {
+              List<Placemark> placemarks = await placemarkFromCoordinates(
+                position.latitude,
+                position.longitude,
+              );
+
+              String alamat = [
+                placemarks.first.name,
+                placemarks.first.street,
+                placemarks.first.subLocality,
+                placemarks.first.locality,
+                placemarks.first.country,
+              ].where((e) => e != null && e!.isNotEmpty).join(', ');
+
+              setState(() {
+                selectedPosition = position;
+                selectedAddress = alamat;
+              });
+            },
+            markers: selectedPosition != null
+                ? {
+                    Marker(
+                      markerId: const MarkerId('selected'),
+                      position: selectedPosition!,
+                    )
+                  }
+                : {},
+          ),          
+        ],
+      ),
     );
   }
 }
