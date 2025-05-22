@@ -64,7 +64,22 @@ class _BodyState extends State<Body> {
                           color: Colors.black87,
                         ),
                       ),
-                    ),                    
+                    ),        
+                    ElevatedButton(
+                      onPressed: _openMapPage,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF0C9869),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        elevation: 0,
+                        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+                      ),
+                      child: const Text(
+                        "Pilih Lokasi",
+                        style: TextStyle(fontSize: 14, color: Colors.white),
+                      ),
+                    ),            
                   ],
                 ),
               ),
