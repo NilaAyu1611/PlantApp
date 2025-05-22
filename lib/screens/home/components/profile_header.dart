@@ -76,7 +76,23 @@ class _ProfileHeaderState extends State<ProfileHeader> {
                 backgroundImage: _image != null
                     ? FileImage(_image!)
                     : const AssetImage('assets/default_profile.png') as ImageProvider,
-              ),              
+              ), 
+              Positioned(
+                bottom: 0,
+                right: 0,
+                child: GestureDetector(
+                  onTap: _showImagePickerOptions,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
+                      border: Border.all(color: Colors.white, width: 2),
+                    ),
+                    padding: const EdgeInsets.all(5),
+                    child: const Icon(Icons.edit, size: 16, color: kPrimaryColor),
+                  ),
+                ),
+              ),             
             ],
           ),          
         ],
