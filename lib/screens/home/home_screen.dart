@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:plantapp/components/my_butttom_nav_bar.dart';
 import 'package:plantapp/constants.dart';
+import 'package:plantapp/screens/home/components/body.dart';
 
 class HomeScreen extends StatelessWidget {
 
