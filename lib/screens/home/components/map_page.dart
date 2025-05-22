@@ -14,6 +14,13 @@ class _MapPageState extends State<MapPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Pilih Lokasi'),
+        backgroundColor: const Color(0xFF0C9869),
+        foregroundColor: Colors.white,
+        elevation: 0,
+      ),      
+    );
   }
 }
