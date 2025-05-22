@@ -36,20 +36,49 @@ class _BodyState extends State<Body> {
 
     // Mengembalikan widget scrollable
     return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(kDefaultPadding),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const <Widget>[    
-            HeaderWithSearchBox(size: size),
-            TitleWithMoreBtn(title: "Recomended", press: () {}),
-            RecomendsPlants(),
-            TitleWithMoreBtn(title: "Featured Plants", press: () {}),
-            FeaturedPlants(),
-            SizedBox(height: kDefaultPadding),
-          ],
-        ),
-      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          const ProfileHeader(),
+
+          // PILIH LOKASI CARD
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding, vertical: 10),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              elevation: 4,
+              child: Padding(
+                padding: const EdgeInsets.all(14.0),
+                child: Row(
+                  children: [
+                    const Icon(Icons.location_on, color: Colors.green, size: 28),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Text(
+                        selectedAddress ?? "Belum ada lokasi terpilih",
+                        style: const TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black87,
+                        ),
+                      ),
+                    ),                    
+                  ],
+                ),
+              ),
+            ),
+          ),
+
+          HeaderWithSearchBox(size: size),
+          TitleWithMoreBtn(title: "Recomended", press: () {}),
+          RecomendsPlants(),
+          TitleWithMoreBtn(title: "Featured Plants", press: () {}),
+          FeaturedPlants(),
+          const SizedBox(height: kDefaultPadding),
+        ],
+      ),      
     );
   }
 }
