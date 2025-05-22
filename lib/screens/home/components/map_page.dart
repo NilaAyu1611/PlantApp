@@ -56,7 +56,34 @@ class _MapPageState extends State<MapPage> {
                     )
                   }
                 : {},
-          ),          
+          ),  
+          if (selectedAddress != null)
+            Positioned(
+              bottom: 90,
+              left: 16,
+              right: 16,
+              child: Card(
+                elevation: 6,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 12.0,
+                    horizontal: 16.0,
+                  ),
+                  child: Text(
+                    selectedAddress!,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ),
+              ),
+            ),        
         ],
       ),
     );
