@@ -39,7 +39,7 @@ class TitleAndPrice extends StatelessWidget {
           ),
           Spacer(),
           Text(
-            "\$$price",
+            "\$$price",                                                             //Tambah tampilan harga dengan styling
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         color: kPrimaryColor,
                       ),
